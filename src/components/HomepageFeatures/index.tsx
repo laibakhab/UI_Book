@@ -1,59 +1,53 @@
 import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 type FeatureItem = {
+  icon: string;
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  description: ReactNode;     
+  description: ReactNode;
 };
 
-const FeatureList: FeatureItem[] = [ 
+const FeatureList: FeatureItem[] = [
   {
+    icon: '\u{1F9BE}',
     title: 'Foundational Hardware Kits',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Explore our range of hardware kits, from the budget-friendly Economy Jetson Kit 
-        to the advanced Physical AI Edge Kit and full Robot Lab. Each is designed to provide 
-        hands-on experience with real-world AI and robotics.
+        From the budget-friendly Economy Jetson Kit to the advanced Physical AI
+        Edge Kit and full Robot Lab — hands-on experience with real-world AI and
+        robotics hardware.
       </>
     ),
   },
   {
+    icon: '\u{1F9E0}',
     title: 'Modular Learning Curriculum',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Dive into our structured learning modules covering everything from ROS (Robot Operating System) 
-        and Digital Twins with NVIDIA Isaac to advanced Visual Language and Action models.
+        Structured modules covering ROS 2, Digital Twins with NVIDIA Isaac,
+        computer vision pipelines, and advanced Vision-Language-Action models for
+        embodied intelligence.
       </>
     ),
   },
   {
+    icon: '\u{2601}\u{FE0F}',
     title: 'Cloud-Native & Digital Twin Labs',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Leverage our Cloud-Native Lab for scalable simulations or build and test 
-        in a persistent virtual environment with a Digital Twin Workstation, 
-        bridging the gap between simulation and reality.
+        Scalable cloud simulations and persistent digital twin workstations that
+        bridge the gap between virtual prototyping and physical deployment.
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({icon, title, description}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
+    <div className={styles.featureCard}>
+      <span className={styles.featureIcon}>{icon}</span>
+      <h3 className={styles.featureTitle}>{title}</h3>
+      <p className={styles.featureDescription}>{description}</p>
     </div>
   );
 }
@@ -62,7 +56,11 @@ export default function HomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
+        <h2 className={styles.sectionTitle}>What You'll Build</h2>
+        <p className={styles.sectionSubtitle}>
+          Everything you need to go from simulation to real-world robotics
+        </p>
+        <div className={styles.cardGrid}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}

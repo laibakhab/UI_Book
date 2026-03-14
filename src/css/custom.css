@@ -1,30 +1,414 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Cyber-Tech Premium Theme for Physical AI & Humanoid Robotics
+ * Deep dark aesthetic with glassmorphism, neon glows, and animated accents
  */
 
-/* You can override the default Infima variables here. */
+/* ===== Google Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ===== CSS Custom Properties ===== */
 :root {
-  --ifm-color-primary: #3578e5;
-  --ifm-color-primary-dark: #1d64d1;
-  --ifm-color-primary-darker: #1b5fca;
-  --ifm-color-primary-darkest: #164fa8;
-  --ifm-color-primary-light: #4d89e8;
-  --ifm-color-primary-lighter: #5a91ea;
-  --ifm-color-primary-lightest: #7aa9ef;
+  --cyber-bg: #0A0A0A;
+  --cyber-surface: rgba(255, 255, 255, 0.05);
+  --cyber-surface-hover: rgba(255, 255, 255, 0.08);
+  --cyber-border: rgba(255, 255, 255, 0.08);
+  --cyber-cyan: #00F5FF;
+  --cyber-violet: #C026D3;
+  --cyber-text: #E2E8F0;
+  --cyber-text-muted: #94A3B8;
+  --cyber-glow: 0 0 20px rgba(0, 245, 255, 0.3);
+  --cyber-glow-violet: 0 0 20px rgba(192, 38, 211, 0.3);
+
+  --ifm-color-primary: #00C4CC;
+  --ifm-color-primary-dark: #00ACB3;
+  --ifm-color-primary-darker: #00A3A9;
+  --ifm-color-primary-darkest: #00868B;
+  --ifm-color-primary-light: #00DCE5;
+  --ifm-color-primary-lighter: #00E5EF;
+  --ifm-color-primary-lightest: #14F5FF;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', monospace;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 245, 255, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* ===== Dark Mode — Primary Theme ===== */
 [data-theme='dark'] {
-  --ifm-color-primary: #528fff;
-  --ifm-color-primary-dark: #2e77ff;
-  --ifm-color-primary-darker: #206eff;
-  --ifm-color-primary-darkest: #0055f0;
-  --ifm-color-primary-light: #76a7ff;
-  --ifm-color-primary-lighter: #8ab5ff;
-  --ifm-color-primary-lightest: #b8d1ff;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #00F5FF;
+  --ifm-color-primary-dark: #00D4DB;
+  --ifm-color-primary-darker: #00C4CC;
+  --ifm-color-primary-darkest: #00A3A9;
+  --ifm-color-primary-light: #33F7FF;
+  --ifm-color-primary-lighter: #4DF8FF;
+  --ifm-color-primary-lightest: #80FAFF;
+  --ifm-background-color: #0A0A0A;
+  --ifm-background-surface-color: #111111;
+  --ifm-navbar-background-color: rgba(10, 10, 10, 0.8);
+  --ifm-footer-background-color: #060606;
+  --ifm-card-background-color: rgba(255, 255, 255, 0.05);
+  --ifm-font-color-base: #E2E8F0;
+  --ifm-heading-color: #F1F5F9;
+  --ifm-link-color: #00F5FF;
+  --ifm-link-hover-color: #80FAFF;
+  --ifm-menu-color-active: #00F5FF;
+  --ifm-code-background: rgba(0, 245, 255, 0.08);
+  --ifm-code-padding-horizontal: 0.4rem;
+  --ifm-code-padding-vertical: 0.15rem;
+  --ifm-code-border-radius: 4px;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 245, 255, 0.15);
+  --ifm-hr-border-color: rgba(255, 255, 255, 0.08);
+  --ifm-toc-border-color: rgba(255, 255, 255, 0.06);
+  --ifm-color-emphasis-300: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Global Styles ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[data-theme='dark'] body {
+  background: #0A0A0A;
+}
+
+[data-theme='dark'] #__docusaurus {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(0, 245, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(192, 38, 211, 0.03) 0%, transparent 50%),
+    #0A0A0A;
+  min-height: 100vh;
+}
+
+/* ===== Custom Scrollbar ===== */
+[data-theme='dark'] ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: rgba(0, 245, 255, 0.2);
+  border-radius: 4px;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 245, 255, 0.4);
+}
+
+/* ===== Navbar — Frosted Glass ===== */
+[data-theme='dark'] .navbar {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(10, 10, 10, 0.75) !important;
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] .navbar__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00F5FF, #C026D3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='dark'] .navbar__link {
+  font-weight: 500;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+[data-theme='dark'] .navbar__link:hover {
+  color: #00F5FF;
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+}
+
+[data-theme='dark'] .navbar__link--active {
+  color: #00F5FF;
+}
+
+[data-theme='dark'] .navbar-sidebar {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+}
+
+/* ===== Sidebar — Neon Active Indicators ===== */
+[data-theme='dark'] .menu {
+  background: transparent;
+  padding: 0.5rem;
+}
+
+[data-theme='dark'] .menu__link {
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+[data-theme='dark'] .menu__link:hover {
+  background: rgba(0, 245, 255, 0.06);
+  color: #00F5FF;
+}
+
+[data-theme='dark'] .menu__link--active:not(.menu__link--sublist) {
+  background: rgba(0, 245, 255, 0.08);
+  color: #00F5FF;
+  border-left: 3px solid #00F5FF;
+  box-shadow: -3px 0 15px rgba(0, 245, 255, 0.15);
+  font-weight: 600;
+}
+
+[data-theme='dark'] .menu__list-item-collapsible:hover {
+  background: rgba(0, 245, 255, 0.04);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-container {
+  border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+/* ===== Doc Page Content ===== */
+[data-theme='dark'] .theme-doc-markdown h1,
+[data-theme='dark'] .theme-doc-markdown h2,
+[data-theme='dark'] .theme-doc-markdown h3 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+[data-theme='dark'] .theme-doc-markdown h2 {
+  border-bottom: 1px solid rgba(0, 245, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+/* ===== Code Blocks ===== */
+[data-theme='dark'] .prism-code {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+[data-theme='dark'] code {
+  color: #00F5FF;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ===== Tables — Glass Effect ===== */
+[data-theme='dark'] table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] table thead tr {
+  background: rgba(0, 245, 255, 0.06);
+}
+
+[data-theme='dark'] table thead th {
+  border-bottom: 1px solid rgba(0, 245, 255, 0.15);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  color: #00F5FF;
+}
+
+[data-theme='dark'] table tbody tr {
+  transition: background 0.2s ease;
+}
+
+[data-theme='dark'] table tbody tr:hover {
+  background: rgba(0, 245, 255, 0.03);
+}
+
+[data-theme='dark'] table td,
+[data-theme='dark'] table th {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+/* ===== Buttons — Neon Glow ===== */
+[data-theme='dark'] .button--primary {
+  background: linear-gradient(135deg, #00F5FF, #00C4CC);
+  color: #0A0A0A;
+  border: none;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .button--primary:hover {
+  box-shadow: 0 0 30px rgba(0, 245, 255, 0.4), 0 5px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  color: #0A0A0A;
+}
+
+[data-theme='dark'] .button--secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: #00F5FF;
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .button--secondary:hover {
+  background: rgba(0, 245, 255, 0.1);
+  border-color: #00F5FF;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+  color: #00F5FF;
+  transform: translateY(-2px);
+}
+
+/* ===== Alerts / Admonitions ===== */
+[data-theme='dark'] .alert {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border-left-width: 4px;
+  backdrop-filter: blur(10px);
+}
+
+/* ===== TOC — Right sidebar ===== */
+[data-theme='dark'] .table-of-contents__link:hover,
+[data-theme='dark'] .table-of-contents__link--active {
+  color: #00F5FF;
+}
+
+/* ===== Pagination ===== */
+[data-theme='dark'] .pagination-nav__link {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .pagination-nav__link:hover {
+  border-color: rgba(0, 245, 255, 0.3);
+  background: rgba(0, 245, 255, 0.05);
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.1);
+}
+
+[data-theme='dark'] .pagination-nav__sublabel {
+  color: #94A3B8;
+}
+
+[data-theme='dark'] .pagination-nav__label {
+  color: #00F5FF;
+}
+
+/* ===== Footer ===== */
+[data-theme='dark'] .footer {
+  background: #060606;
+  border-top: 1px solid rgba(0, 245, 255, 0.08);
+}
+
+[data-theme='dark'] .footer__title {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #00F5FF;
+}
+
+[data-theme='dark'] .footer__link-item {
+  color: #94A3B8;
+  transition: color 0.2s ease;
+}
+
+[data-theme='dark'] .footer__link-item:hover {
+  color: #00F5FF;
+  text-decoration: none;
+}
+
+[data-theme='dark'] .footer__copyright {
+  color: #475569;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* ===== Breadcrumbs ===== */
+[data-theme='dark'] .breadcrumbs__link {
+  color: #94A3B8;
+  transition: color 0.2s;
+}
+
+[data-theme='dark'] .breadcrumbs__link:hover {
+  color: #00F5FF;
+}
+
+/* ===== Search ===== */
+[data-theme='dark'] .DocSearch-Button {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 10px !important;
+}
+
+[data-theme='dark'] .DocSearch-Button:hover {
+  border-color: rgba(0, 245, 255, 0.3) !important;
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.1) !important;
+}
+
+/* ===== Selection ===== */
+[data-theme='dark'] ::selection {
+  background: rgba(0, 245, 255, 0.25);
+  color: #fff;
+}
+
+/* ===== Markdown content links ===== */
+[data-theme='dark'] .theme-doc-markdown a {
+  color: #00F5FF;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 245, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+[data-theme='dark'] .theme-doc-markdown a:hover {
+  border-bottom-color: #00F5FF;
+  text-shadow: 0 0 8px rgba(0, 245, 255, 0.3);
+}
+
+/* ===== Tabs ===== */
+[data-theme='dark'] .tabs__item {
+  border-bottom-color: transparent;
+  transition: all 0.2s ease;
+}
+
+[data-theme='dark'] .tabs__item--active {
+  border-bottom-color: #00F5FF;
+  color: #00F5FF;
+}
+
+[data-theme='dark'] .tabs__item:hover {
+  color: #00F5FF;
+}
+
+/* ===== Animations ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 245, 255, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(0, 245, 255, 0.4); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
